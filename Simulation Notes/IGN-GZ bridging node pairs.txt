@@ -1,0 +1,22 @@
+Gazebo Plugin	   | 	Gazebo Transport Type 	   | 		ROS2 Type 		            |	Functionality
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    IMU Sensor	   | 	ignition.msgs.IMU	        |	sensor_msgs/msg/Imu		        |	Publishes IMU sensor data (accelerometer, gyroscope, orientation)
+Camera Sensor	   | 	ignition.msgs.Image	        | 	sensor_msgs/msg/Image		    | 	Streams camera images from Ignition to ROS2
+Depth Camera	   | 	ignition.msgs.Image	        | 	sensor_msgs/msg/Image		    | 	Streams depth images from Ignition to ROS2
+Lidar Sensor	   | 	ignition.msgs.LaserScan	    | 	sensor_msgs/msg/LaserScan	    | 	Publishes laser scan (LIDAR) data
+Odometry Plugin	   |	ignition.msgs.Odometry      |	nav_msgs/msg/Odometry		    | 	Provides robot odometry data
+    Pose Plugin	   | 	ignition.msgs.Pose	        | 	geometry_msgs/msg/Pose		    | 	Publishes an entity’s pose (position + orientation)
+Pose Stamped Plugin| 	ignition.msgs.Pose	        | 	geometry_msgs/msg/PoseStamped	| 	Publishes an entity’s pose w.r.t Time Frame (Alternative to No.8)
+Pose Array Plugin  | 	ignition.msgs.Pose_V	    | 	geometry_msgs/msg/PoseArray	    | 	Publishes a collection of poses (useful for multi-agent applications)
+Joint State Plugin |	ignition.msgs.Model	        | 	sensor_msgs/msg/JointState	    | 	Publishes the state of model joints (positions, velocities, efforts)
+Clock Plugin	   |	ignition.msgs.Clock	        |  	rosgraph_msgs/msg/Clock		    | 	Synchronizes simulation time with ROS2 system
+    TF Plugin	   |	ignition.msgs.Pose_V	    | 	tf2_msgs/msg/TFMessage		    | 	Publishes transformations (TF tree) between different coordinate frames
+Velocity Commands  |	ignition.msgs.Twist	        | 	geometry_msgs/msg/Twist		    | 	Sends velocity commands to a mobile robot
+Wrench Commands	   |	ignition.msgs.Wrench	    | 	geometry_msgs/msg/Wrench	    | 	Applies force and torque to a model in simulation
+    GPS Sensor	   |	ignition.msgs.NavSat	    | 	sensor_msgs/msg/NavSatFix	    | 	Publishes GPS latitude, longitude, and altitude
+Magnetometer	   |	ignition.msgs.Magnetometer  |	sensor_msgs/msg/MagneticField	| 	Publishes magnetic field strength data
+Contact Sensor	   |	ignition.msgs.Contacts	    | 	gazebo_msgs/msg/ContactsState	| 	Detects collisions and contact forces between objects
+Actuator Effort	   |	ignition.msgs.Actuators	    | 	sensor_msgs/msg/JointState	    | 	Controls actuator forces and torques
+Battery State	   | 	ignition.msgs.BatteryState  |	sensor_msgs/msg/BatteryState	| 	Publishes battery charge level and voltage
+    Light State	   |	ignition.msgs.Light	        | 	std_msgs/msg/String		        | 	Controls and queries light sources in Ignition
+Air Pressure	   |	ignition.msgs.FluidPressure |	sensor_msgs/msg/FluidPressure	| 	Simulates barometric pressure readings

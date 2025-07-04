@@ -1,0 +1,180 @@
+-------------------------------------------------------------------------------------------
+# DEV COMMANDS
+-------------------------------------------------------------------------------------------
+
+# STEP0: SOME PRE-REQUISITES (OPTIONAL)
+sudo apt update
+sudo snap install tree
+sudo apt install -y ros-foxy-turtlebot3* ros-foxy-teleop-twist-keyboard
+sudo apt install python3-colcon-common-extensions
+sudo apt install <all other relevant dependencies of your project!!!>
+
+
+# STEP1: ADD ANY ENVIRONMENT VARIABLES PRIOR DEVELOPMENT, DEBUGGING, AND TESTING (OPTIONAL)
+echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
+source ~/.bashrc
+
+
+# STEP2: CREATE WORKSPACE AND SRC FOLDER
+mkdir -p ~ROS2/'CPP Packages'/ros2_ws/src
+cd ~/ros2_ws
+
+
+# STEP3: CREATE PACKAGE'S BASIC STRUCTURE
+# OPTION 1:  (AMENT_PYTHON)
+ros2 pkg create --build-type ament_python --license Apache-2.0 nodetester
+# OPTION 2:  (AMENT_CMAKE WITH IGNITION GAZEBO EXTENSION)
+ros2 pkg create --build-type ament_cmake qc_ign_v1
+# OPTION 3:  (AMENT_CMAKE)
+ros2 pkg create <package_name> --dependencies rclpy launch_ros
+
+
+# STEP5: CREATE ENTRY POINT IN 'Setup.py'
+cd path/to/package_folder/
+nano setup.py
+
+
+# STEP6: ADD MODELS, WORLDS AND SCRIPTS FOLDERS
+mkdir -p path/to/package_folder/models
+mkdir -p path/to/package_folder/worlds
+mkdir -p path/to/package_folder/scripts
+mkdir -p path/to/package_folder/msgs    (IN CASE OF CUSTOM NODE PUBLISHERS AND SUBSCRIBERS)
+mkdir -p path/to/package_folder/srv     (IN CASE OF SERVICES AND CLIENTS)
+mkdir -p path/to/package_folder/action  (IN CASE OF ACTION SERVERS AND CLIENTS)
+
+
+# STEP7: EDITING 'CMakeLists.txt' (IF IN CASE OF OPTION2 OTHERWISE SKIP)
+cd path/to/package_folder/
+nano CMakeLists.txt
+
+
+# STEP8: EDIT 'package.xml'
+cd path/to/package_folder/
+nano CMakeLists.txt
+
+
+# STEP9: CREATE A LAUNCH FOLDER AND FILE
+cd path/to/package_folder/
+mkdir launch
+nano launch/<package_folder>.launch.py
+
+
+# STEP10: BUILD ROOT LIBS FOR PACKAGE DEPENDENCY   (FROM WS DIR!!)
+rosdep install -i --from-path src --rosdistro humble -y
+
+
+# STEP11: BUILD PACKAGE  (FROM WS DIR!!)
+# NOTE: ENSURE TO SEPERATE PYTHON AND C++ PACKAGES TO AVOID CONFLICTS!
+# OPTION 1:  (simple build; all packages will be built!)
+colcon build
+# OPTION 2:  (If AMENT_CMAKE option was opted)
+colcon build --symlink-install
+# OPTION 3:  (If only selected packages were intended to be built!)
+colcon build --packages-select <package_name>
+# OPTION 4: (CLEAN BUILD)
+rm -rf build install log
+colcon build
+# OPTION 5: (ALLOW OVERRIDE ARGUEMENT)
+colcon build --allow-overriding ros_gz_bridge ros_gz_sim <any_other_package_giving_warnings>
+
+# STEP12: TEST THE BUILD
+colcon test
+
+
+# STEP13: SOURCE THE SETUP FILES AFTER BUILDING 
+# OPTION1:  (ON SUCCESSFUL BUILD)
+source install/setup.bash
+# OPTION2:  (ON SUCCESSFUL BUILD BUT MAKING THESE CHANGES PERSISTENT AS WELL)
+source install/setup.bash
+echo "source install/setup.bash" >> ~/.bashrc
+# OPTION3: 
+colcon test --packages-select YOUR_PKG_NAME --ctest-args -R YOUR_TEST_IN_PKG
+
+
+# STEP14: LAUNCH THE PACKAGE
+ros2 launch <package_name> <launch_file>
+
+# STEP15: RUN EXECS
+# OPTION1:  (IN CASE OF NODE LISTENERS AND PUBLISHERS, AS WELL AS CLIENT AND SERVER CONFIGURATION)
+ros2 run <package_name> <exec_name>
+# OPTION2:  (IN CASE OF PARAMETERS INVOLVED IN CLI)
+ros2 run package_name executable_name --ros-args -p param_name:=param_value
+ros2 run demo_nodes_cpp parameter_blackboard --ros-args -p some_int:=42 -p "a_string:=Hello world" -p "some_lists.some_integers:=[1, 2, 3, 4]" -p "some_lists.some_doubles:=[3.14, 2.718]"
+# OPTION3:  (IN CASE OF PARAMETERS INVOLVED FROM YAML FILES)
+ros2 run package_name executable_name --ros-args -p param_name:=param_value
+
+
+----------------------------------------------------------------------------------------
+# AUXILIARY COMMANDS
+----------------------------------------------------------------------------------------
+
+# CASE1: Change directory towards the Package
+echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
+echo "export _colcon_cd_root=/opt/ros/humble/" >> ~/.bashrc
+colcon_cd <package_name>
+
+
+# CASE2: POSSIBLE TROUBLESHOOTING COMMANDS
+unset AMENT_CMAKE_PREFIX_PATH && unset CMAKE_PREFIX_PATH && sudo reboot (NOTE: This will restart the computer)
+echo $COLCON_PREFIX_PATH
+export COLCON_PREFIX_PATH=~/ROS2/CPP\ Packages/ros2_ws/install:$COLCON_PREFIX_PATH
+
+
+# CASE3: Basic Topic enlisting and testing
+ign topic -l
+ign topic -t "/model/qc_ign_v1/cmd_vel" -m "ignition.msgs.Twist" -p 'linear { x: 1.0 }'
+ros2 topic echo /cmd_vel
+ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0, y: 0.0, z: 0.0}}"
+
+
+# CASE4: CHECK IF BRIDGE IS ACTIVE
+ros2 run ros_ign_bridge parameter_bridge /cmd_vel@geometry_msgs/msg/Twist@ignition.msgs.Twist
+
+
+# CASE5: POSSIBLE TROUBLESHOOTING OF ENV VARIABLES
+unset AMENT_CMAKE_PREFIX_PATH && unset CMAKE_PREFIX_PATH && sudo reboot (NOTE: This will restart the computer)
+echo $COLCON_PREFIX_PATH
+export COLCON_PREFIX_PATH=~/ROS2/CPP\ Packages/ros2_ws/install:$COLCON_PREFIX_PATH
+
+# CASE6: ENLIST ALL THE AVAILABLE PLUGINS
+ls /opt/ros/humble/lib/ | grep gazebo
+
+# CASE7: ENLIST ALL THE AVAILABLE PLUGINS (IF INSTALLED)
+find /usr/lib -name "*.so" | grep ignition
+ldd /path/to/libgazebo_ros_force.so
+
+# CASE8: RETRIEVE ALL PARAMETERS
+ros2 param list <pkg_name>
+
+# CASE9: ENLIST ALL PROCESSES
+ps aux (or 'top')
+taskkill /PID <1234> (or 'kill' -9 <1234>) 
+
+
+
+-------------------------------------------------------------------------------------------
+# TESTING COMMANDS (qc_ign_v3)
+-------------------------------------------------------------------------------------------
+
+# OPTION 1: PUBLISH MESSAGE ON TOPIC FROM IGN
+ign topic -l
+ign service -l
+
+# OPTION 2: PUBLISH MESSAGE ON TOPIC FROM ros2/ Manual Publishing of movement commands
+ros2 topic -l
+ros2 service -l
+
+# OPTION 3: PUBLISH MESSAGE ON TOPIC FROM IGN
+ign topic -t "/cmd_vel" -m ignition.msgs.Twist -p "linear: {x: 0.5, z:0.1}, angular: {z: 0.05}"
+ign topic -t "/quadcopter/apply_force" -m ignition.msgs.Wrench -p "force: {x: 0.5, z:0.1}, torque: {z: 0.05}"
+
+# OPTION 4: PUBLISH MESSAGE ON TOPIC FROM ros2
+ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5, z:0.1}, angular: {z: 0.05}}"
+ros2 topic pub "/quadcopter/apply_force" geometry_msgs/msg/Wrench force: {x: 0.5, z:0.1}, torque: {z: 0.05}"
+
+# OPTION 5: FIND MESSAGE TYPE OF QC FROM ROS2
+ros2 topic info /cmd_vel
+
+# OPTION 6: Running Script for QC Movement
+python3 install/qc_ign_v3/lib/qc_ign_v3/move_back_and_forth.py
+

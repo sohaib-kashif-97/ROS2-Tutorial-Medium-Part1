@@ -1,0 +1,169 @@
+--------------------------------------------------------------------------------------------------------
+				ALL PLUGINS FOR USE IN IGNITION 6
+
+gui								  
+libignition-gazebo6-ackermann-steering-system.so		  libignition-gazebo6-perfect-comms-system.so
+
+libignition-gazebo6-air-pressure-system.so			  libignition-gazebo6-performer-detector-system.so
+
+libignition-gazebo6-altimeter-system.so				  libignition-gazebo6-physics-system.so
+
+libignition-gazebo6-apply-joint-force-system.so			  libignition-gazebo6-pose-publisher-system.so
+
+libignition-gazebo6-apply-link-wrench-system.so			  libignition-gazebo6-rf-comms-system.so
+
+libignition-gazebo6-breadcrumbs-system.so			  libignition-gazebo6-scene-broadcaster-system.so
+
+libignition-gazebo6-buoyancy-engine-system.so			  libignition-gazebo6-sensors-system.so
+
+libignition-gazebo6-buoyancy-system.so				  libignition-gazebo6-shader-param-system.so
+
+libignition-gazebo6-camera-video-recorder-system.so		  libignition-gazebo6-thermal-sensor-system.so
+
+libignition-gazebo6-collada-world-exporter-system.so		  libignition-gazebo6-thermal-system.so
+
+libignition-gazebo6-comms-endpoint-system.so			  libignition-gazebo6-thruster-system.so
+
+libignition-gazebo6-contact-system.so				  libignition-gazebo6-touchplugin-system.so
+
+libignition-gazebo6-detachable-joint-system.so			  libignition-gazebo6-track-controller-system.so
+
+libignition-gazebo6-diff-drive-system.so			  libignition-gazebo6-tracked-vehicle-system.so
+
+libignition-gazebo6-elevator-system.so				  libignition-gazebo6-trajectory-follower-system.so
+
+libignition-gazebo6-follow-actor-system.so			  libignition-gazebo6-triggered-publisher-system.so
+
+libignition-gazebo6-forcetorque-system.so			  libignition-gazebo6-user-commands-system.so
+
+libignition-gazebo6-hydrodynamics-system.so			  libignition-gazebo6-velocity-control-system.so
+
+libignition-gazebo6-imu-system.so				  libignition-gazebo6-wheel-slip-system.so
+
+libignition-gazebo6-joint-controller-system.so			  libignition-gazebo6-wind-effects-system.so
+
+libignition-gazebo6-joint-position-controller-system.so		  libignition-gazebo-ackermann-steering-system.so
+
+libignition-gazebo-air-pressure-system.so			  libignition-gazebo-altimeter-system.so
+
+libignition-gazebo6-joint-state-publisher-system.so		  libignition-gazebo-apply-joint-force-system.so
+
+libignition-gazebo-apply-link-wrench-system.so			  libignition-gazebo-breadcrumbs-system.so
+
+libignition-gazebo6-joint-trajectory-controller-system.so	  libignition-gazebo-buoyancy-engine-system.so
+libignition-gazebo-buoyancy-system.so
+libignition-gazebo-camera-video-recorder-system.so
+
+libignition-gazebo6-kinetic-energy-monitor-system.so		  libignition-gazebo-collada-world-exporter-system.so
+libignition-gazebo-comms-endpoint-system.so
+libignition-gazebo-contact-system.so
+
+libignition-gazebo6-label-system.so				  libignition-gazebo-detachable-joint-system.so
+libignition-gazebo-diff-drive-system.so
+libignition-gazebo-elevator-system.so
+
+libignition-gazebo6-lift-drag-system.so				  libignition-gazebo-follow-actor-system.so
+libignition-gazebo-forcetorque-system.so
+libignition-gazebo-hydrodynamics-system.so
+
+libignition-gazebo6-linearbatteryplugin-system.so		  libignition-gazebo-imu-system.so
+libignition-gazebo-joint-controller-system.so
+libignition-gazebo-joint-position-controller-system.so
+
+libignition-gazebo6-logicalaudiosensorplugin-system.so		  libignition-gazebo-joint-state-publisher-system.so
+libignition-gazebo-joint-trajectory-controller-system.so
+libignition-gazebo-kinetic-energy-monitor-system.so
+
+libignition-gazebo6-logical-camera-system.so			  libignition-gazebo-label-system.so
+libignition-gazebo-lift-drag-system.so
+libignition-gazebo-linearbatteryplugin-system.so
+
+libignition-gazebo6-log-system.so				  libignition-gazebo-logicalaudiosensorplugin-system.so
+libignition-gazebo-logical-camera-system.so
+libignition-gazebo-log-system.so
+
+libignition-gazebo6-log-video-recorder-system.so		  libignition-gazebo-log-video-recorder-system.so
+libignition-gazebo-magnetometer-system.so
+libignition-gazebo-mecanum-drive-system.so
+
+libignition-gazebo6-magnetometer-system.so			  libignition-gazebo-model-photo-shoot-system.so
+libignition-gazebo-multicopter-control-system.so
+libignition-gazebo-multicopter-motor-model-system.so
+
+libignition-gazebo6-mecanum-drive-system.so			  libignition-gazebo-navsat-system.so
+libignition-gazebo-odometry-publisher-system.so
+libignition-gazebo-opticaltactileplugin-system.so
+
+libignition-gazebo6-model-photo-shoot-system.so			  libignition-gazebo-particle-emitter2-system.so
+
+libignition-gazebo-particle-emitter-system.so			  libignition-gazebo-perfect-comms-system.so
+
+libignition-gazebo6-multicopter-control-system.so		  libignition-gazebo-performer-detector-system.so
+
+libignition-gazebo-physics-system.so				  libignition-gazebo-pose-publisher-system.so
+
+libignition-gazebo6-multicopter-motor-model-system.so		  libignition-gazebo-rf-comms-system.so
+
+libignition-gazebo-scene-broadcaster-system.so			  libignition-gazebo-sensors-system.so
+
+libignition-gazebo6-navsat-system.so				  libignition-gazebo-shader-param-system.so
+
+libignition-gazebo-thermal-sensor-system.so			  libignition-gazebo-thermal-system.so
+
+libignition-gazebo6-odometry-publisher-system.so		  libignition-gazebo-thruster-system.so
+
+libignition-gazebo-touchplugin-system.so			  libignition-gazebo-track-controller-system.so
+
+libignition-gazebo6-opticaltactileplugin-system.so		  libignition-gazebo-tracked-vehicle-system.so
+
+libignition-gazebo-trajectory-follower-system.so		  libignition-gazebo-triggered-publisher-system.so
+
+libignition-gazebo6-particle-emitter2-system.so			  libignition-gazebo-user-commands-system.so
+
+libignition-gazebo-velocity-control-system.so			  libignition-gazebo-wheel-slip-system.so
+
+libignition-gazebo6-particle-emitter-system.so			  libignition-gazebo-wind-effects-system.so
+
+/usr/lib/x86_64-linux-gnu/libignition-gazebo6-gui.so		  /usr/lib/x86_64-linux-gnu/libignition-gui6.so
+
+/usr/lib/x86_64-linux-gnu/libgazebo_gui.so			  /usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/gui/libTransformControl.so
+
+/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libTeleop.so
+
+
+--------------------------------------------------------------------------------------------------------
+				SHORTLISTED PLUGINS FOR USE IN IGNITION 6
+				
+PENDING:	
+62 - libignition-gazebo-diff-drive-system.so
+101 - libignition-gazebo6-multicopter-control-system.so
+90 - libignition-gazebo-multicopter-control-system.so
+70 - libignition-gazebo-joint-controller-system.so
+51 - libignition-gazebo-apply-link-wrench-system.so
+49 - libignition-gazebo-apply-joint-force-system.so
+49 - libignition-gazebo6-joint-state-publisher-system.so
+31 - libignition-gazebo6-diff-drive-system.so
+37 - libignition-gazebo6-forcetorque-system.so
+13 - libignition-gazebo6-apply-link-wrench-system.so
+11 - libignition-gazebo6-apply-joint-force-system.so	
+9 - libignition-gazebo6-physics-system.so
+109 - libignition-gazebo6-navsat-system.so
+?? - libignition-gazebo-ros2-imu-system.so
+
+
+USED:
+123 - libignition-gazebo-velocity-control-system.so
+93 - libignition-gazebo-navsat-system.so
+103 - libignition-gazebo-pose-publisher-system.so
+103 - libignition-gazebo-physics-system.so
+107 - libignition-gazebo-scene-broadcaster-system.so
+69 - libignition-gazebo-imu-system.so
+113 - libignition-gazebo6-odometry-publisher-system.so
+105 - libignition-gazebo6-multicopter-motor-model-system.so
+
+
+ENV _VAR PATHS:  
+
+/usr/lib/x86_64-linux-gnu/gazebo-11/plugins
+
+
