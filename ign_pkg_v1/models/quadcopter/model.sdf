@@ -1,22 +1,21 @@
 <?xml version="1.0" ?>
 <sdf version="1.7">
     <model name="quadcopter">
-        <static>true</static> <!-- The model won't move unless controlled -->
-        
-        
+        <static>false</static> <!-- Set to the 'true' if the model is to be set in place! -->
         
         <!-- Square Base -->
         <link name="base_link">
             <inertial>
-                <mass>0</mass> <!-- Weightless -->
+                <mass>1.0</mass> <!-- Weightless -->
                 <inertia>
-                    <ixx>0</ixx> <iyy>0</iyy> <izz>0</izz>
+                    <ixx>0.01</ixx> <iyy>0.01</iyy> <izz>0.01</izz> <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
                 </inertia>
             </inertial>
-            <visual name="base_visual">
+            <visual name="visual">
+                <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
                     <box>
-                        <size>1 1 0.1</size> <!-- Square base of 1x1 with 0.1 thickness -->
+                        <size>0.5 0.5 0.2</size> <!-- Square base of 1x1 with 0.1 thickness -->
                     </box>
                 </geometry>
                 <material>
@@ -24,13 +23,17 @@
                     <diffuse>0.5 0 0 1</diffuse>
                 </material>
             </visual>
-            <collision name="base_collision">
+            <collision name="collision">
                 <geometry>
                     <box>
-                        <size>1 1 0.1</size>
+                        <size>0.5 0.5 0.2</size>
                     </box>
                 </geometry>
-            </collision>
+            </collision>          
+        </link>
+        
+        <link name="force_link">
+            <pose>0 0 0.1 0 0 0</pose>
         </link>
 
         
@@ -38,6 +41,13 @@
         <!-- Four Rotors -->
         <link name="rotor_1">
             <pose>0.5 0.5 0.2 0 0 0</pose> <!-- Top-right -->
+            <inertial>
+    	        <mass>0.1</mass>
+    	        <inertia>
+                    <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
+        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+    	        </inertia>
+	    </inertial>
             <visual name="rotor1_visual">
                 <geometry>
                     <cylinder>
@@ -53,6 +63,13 @@
         
         <link name="rotor_2">
             <pose>-0.5 0.5 0.2 0 0 0</pose> <!-- Top-left -->
+            <inertial>
+    	        <mass>0.1</mass>
+    	        <inertia>
+                    <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
+        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+    	        </inertia>
+	    </inertial>
             <visual name="rotor2_visual">
                 <geometry>
                     <cylinder>
@@ -68,6 +85,13 @@
 
         <link name="rotor_3">
             <pose>-0.5 -0.5 0.2 0 0 0</pose> <!-- Bottom-left -->
+            <inertial>
+    	        <mass>0.1</mass>
+    	        <inertia>
+                    <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
+        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+    	        </inertia>
+	    </inertial>
             <visual name="rotor3_visual">
                 <geometry>
                     <cylinder>
@@ -83,6 +107,13 @@
 
         <link name="rotor_4">
             <pose>0.5 -0.5 0.2 0 0 0</pose> <!-- Bottom-right -->
+            <inertial>
+    	        <mass>0.1</mass>
+    	        <inertia>
+                    <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
+        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+    	        </inertia>
+	    </inertial>
             <visual name="rotor4_visual">
                 <geometry>
                     <cylinder>
@@ -98,11 +129,16 @@
 
         
         
-        
-        
-        <!-- Four Connecting Rods -->
+        <!-- Four Rods -->
         <link name="rod_1">
             <pose>0.25 0.25 0.15 -0.5 1 0</pose>
+            <inertial>
+    	        <mass>0.1</mass>
+    	        <inertia>
+                    <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
+        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+    	        </inertia>
+	    </inertial>
             <visual name="rod1_visual">
                 <geometry>
                     <cylinder>
@@ -118,6 +154,13 @@
 
         <link name="rod_2">
             <pose>-0.25 0.25 0.15 -0.5 -1 0</pose>
+            <inertial>
+    	        <mass>0.1</mass>
+    	        <inertia>
+                    <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
+        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+    	        </inertia>
+	    </inertial>
             <visual name="rod2_visual">
                 <geometry>
                     <cylinder>
@@ -133,6 +176,13 @@
 
         <link name="rod_3">
             <pose>-0.25 -0.25 0.15 0.5 -1 0</pose>
+            <inertial>
+    	        <mass>0.1</mass>
+    	        <inertia>
+                    <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
+        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+    	        </inertia>
+	    </inertial>
             <visual name="rod3_visual">
                 <geometry>
                     <cylinder>
@@ -148,6 +198,13 @@
 
         <link name="rod_4">
             <pose>0.25 -0.25 0.15 0.5 1 0</pose>
+            <inertial>
+    	        <mass>0.1</mass>
+    	        <inertia>
+                    <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
+        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+    	        </inertia>
+	    </inertial>
             <visual name="rod4_visual">
                 <geometry>
                     <cylinder>
@@ -160,6 +217,80 @@
                 </material>
             </visual>
         </link>
+        
+        
+        
+        <!-- All Joints of the QC -->
+        
+        <joint name="force_torque_joint" type="fixed">     <!--Does it need 'Revolute'??-->
+	    <parent>base_link</parent>
+	    <child>force_link</child>
+	</joint>
+        
+        <joint name="rotor_1_joint" type="fixed">
+            <parent>base_link</parent>
+            <child>rotor_1</child>
+            <pose>0 0 0 0 0 0</pose>
+        </joint>
+        
+        <joint name="rotor_2_joint" type="fixed">
+            <parent>base_link</parent>
+            <child>rotor_2</child>
+            <pose>0 0 0 0 0 0</pose>
+        </joint>
+        
+        <joint name="rotor_3_joint" type="fixed">
+            <parent>base_link</parent>
+            <child>rotor_3</child>
+            <pose>0 0 0 0 0 0</pose>
+        </joint>
+        
+        <joint name="rotor_4_joint" type="fixed">
+            <parent>base_link</parent>
+            <child>rotor_4</child>
+            <pose>0 0 0 0 0 0</pose>
+        </joint>
+        
+        <joint name="rod_1_joint" type="fixed">
+            <parent>base_link</parent>
+            <child>rod_1</child>
+            <pose>0 0 0 0 0 0</pose>
+        </joint>
+        
+        <joint name="rod_2_joint" type="fixed">
+            <parent>base_link</parent>
+            <child>rod_2</child>
+            <pose>0 0 0 0 0 0</pose>
+        </joint>
+        
+        <joint name="rod_3_joint" type="fixed">
+            <parent>base_link</parent>
+            <child>rod_3</child>
+            <pose>0 0 0 0 0 0</pose>
+        </joint>
+        
+        <joint name="rod_4_joint" type="fixed">
+            <parent>base_link</parent>
+            <child>rod_4</child>
+            <pose>0 0 0 0 0 0</pose>
+        </joint>
+        
+        
+        
+        <!-- All QC Sensors -->
+        <sensor name="force_torque_sensor" type="force_torque">
+	    <always_on>true</always_on>
+	    <update_rate>50</update_rate>
+            <visualize>true</visualize>
+            <namespace>quadcopter</namespace>
+	    <topic>/quadcopter/apply_force</topic>
+	    <force_torque>
+	    	<joint_name>force_torque_joint</joint_name>
+	    	<frame>parent</frame>
+	    	<measure_direction>child_to_parent</measure_direction>
+	    </force_torque>
+	</sensor>	    	
+        
 
     </model>
 </sdf>
