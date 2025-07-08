@@ -103,7 +103,7 @@ Inside the '/src' folder, you can create your folder by:
 
 ```bash
 cd ~/ros2_ws/src
-ros2 pkg create --build-type cmake_python my_ignition_package --dependencies rclpy
+ros2 pkg create ign_pkg_v1 --build-type ament_cmake --dependencies rclpy
 ```
 
 If you have 'tree' install, you would be able to overlook your directory structure. IN our case, it would look like:
