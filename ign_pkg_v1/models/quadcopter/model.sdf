@@ -45,9 +45,9 @@
     	        <mass>0.1</mass>
     	        <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
-        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+                    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
     	        </inertia>
-	    </inertial>
+	        </inertial>
             <visual name="rotor1_visual">
                 <geometry>
                     <cylinder>
@@ -67,9 +67,9 @@
     	        <mass>0.1</mass>
     	        <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
-        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+                    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
     	        </inertia>
-	    </inertial>
+            </inertial>
             <visual name="rotor2_visual">
                 <geometry>
                     <cylinder>
@@ -89,9 +89,9 @@
     	        <mass>0.1</mass>
     	        <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
-        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+                    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
     	        </inertia>
-	    </inertial>
+	        </inertial>
             <visual name="rotor3_visual">
                 <geometry>
                     <cylinder>
@@ -111,9 +111,9 @@
     	        <mass>0.1</mass>
     	        <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
-        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+                    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
     	        </inertia>
-	    </inertial>
+            </inertial>
             <visual name="rotor4_visual">
                 <geometry>
                     <cylinder>
@@ -136,9 +136,9 @@
     	        <mass>0.1</mass>
     	        <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
-        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+                    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
     	        </inertia>
-	    </inertial>
+            </inertial>
             <visual name="rod1_visual">
                 <geometry>
                     <cylinder>
@@ -158,9 +158,9 @@
     	        <mass>0.1</mass>
     	        <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
-        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+                    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
     	        </inertia>
-	    </inertial>
+            </inertial>
             <visual name="rod2_visual">
                 <geometry>
                     <cylinder>
@@ -180,9 +180,9 @@
     	        <mass>0.1</mass>
     	        <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
-        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+                    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
     	        </inertia>
-	    </inertial>
+            </inertial>
             <visual name="rod3_visual">
                 <geometry>
                     <cylinder>
@@ -202,9 +202,9 @@
     	        <mass>0.1</mass>
     	        <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
-        	    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+                    <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
     	        </inertia>
-	    </inertial>
+            </inertial>
             <visual name="rod4_visual">
                 <geometry>
                     <cylinder>
@@ -220,13 +220,7 @@
         
         
         
-        <!-- All Joints of the QC -->
-        
-        <joint name="force_torque_joint" type="fixed">     <!--Does it need 'Revolute'??-->
-	    <parent>base_link</parent>
-	    <child>force_link</child>
-	</joint>
-        
+        <!-- All Joints of the QC -->        
         <joint name="rotor_1_joint" type="fixed">
             <parent>base_link</parent>
             <child>rotor_1</child>
@@ -273,23 +267,7 @@
             <parent>base_link</parent>
             <child>rod_4</child>
             <pose>0 0 0 0 0 0</pose>
-        </joint>
-        
-        
-        
-        <!-- All QC Sensors -->
-        <sensor name="force_torque_sensor" type="force_torque">
-	    <always_on>true</always_on>
-	    <update_rate>50</update_rate>
-            <visualize>true</visualize>
-            <namespace>quadcopter</namespace>
-	    <topic>/quadcopter/apply_force</topic>
-	    <force_torque>
-	    	<joint_name>force_torque_joint</joint_name>
-	    	<frame>parent</frame>
-	    	<measure_direction>child_to_parent</measure_direction>
-	    </force_torque>
-	</sensor>	    	
+        </joint>   	
         
 
     </model>
