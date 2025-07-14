@@ -109,13 +109,15 @@ ros2 pkg create ign_pkg_v1 --build-type ament_cmake --dependencies rclpy
 If you have 'tree' install, you would be able to overlook your directory structure. IN our case, it would look like:
 
 ```bash
-my_ignition_package/
+ign_pkg_v1/
+├── CMakeLists.txt
+├── launch
+│   └── ign_pkg_v1.launch.py
+├── models
+│   └── quadcopter
+│       └── model.sdf
 ├── package.xml
-├── setup.py
-├── CMakeLists
-├── resource/
-│   └── my_ignition_package
-├── my_ignition_package/
-│   ├── __init__.py
+└── worlds
+    └── world.sdf
 ```
 
