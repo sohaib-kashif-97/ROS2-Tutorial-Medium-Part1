@@ -121,3 +121,14 @@ ign_pkg_v1/
     └── world.sdf
 ```
 
+Run the setup by the following commands below:
+
+```bash
+cd ~/Desktop/ros2_ws
+clear
+rm -rf install log build
+colcon build --allow-overriding ros_gz_bridge ros_gz_sim
+source install/setup.bash
+ros2 launch ign_pkg_v1 ign_pkg_v1.launch.py
+```
+
