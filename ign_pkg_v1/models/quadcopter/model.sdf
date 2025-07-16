@@ -42,12 +42,12 @@
         <link name="rotor_1">
             <pose>0.5 0.5 0.2 0 0 0</pose> <!-- Top-right -->
             <inertial>
-    	        <mass>0.1</mass>
-    	        <inertia>
+             <mass>0.1</mass>
+             <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
                     <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
-    	        </inertia>
-	        </inertial>
+             </inertia>
+         </inertial>
             <visual name="rotor1_visual">
                 <geometry>
                     <cylinder>
@@ -64,11 +64,11 @@
         <link name="rotor_2">
             <pose>-0.5 0.5 0.2 0 0 0</pose> <!-- Top-left -->
             <inertial>
-    	        <mass>0.1</mass>
-    	        <inertia>
+             <mass>0.1</mass>
+             <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
                     <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
-    	        </inertia>
+             </inertia>
             </inertial>
             <visual name="rotor2_visual">
                 <geometry>
@@ -86,12 +86,12 @@
         <link name="rotor_3">
             <pose>-0.5 -0.5 0.2 0 0 0</pose> <!-- Bottom-left -->
             <inertial>
-    	        <mass>0.1</mass>
-    	        <inertia>
+             <mass>0.1</mass>
+             <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
                     <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
-    	        </inertia>
-	        </inertial>
+             </inertia>
+         </inertial>
             <visual name="rotor3_visual">
                 <geometry>
                     <cylinder>
@@ -108,11 +108,11 @@
         <link name="rotor_4">
             <pose>0.5 -0.5 0.2 0 0 0</pose> <!-- Bottom-right -->
             <inertial>
-    	        <mass>0.1</mass>
-    	        <inertia>
+             <mass>0.1</mass>
+             <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
                     <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
-    	        </inertia>
+             </inertia>
             </inertial>
             <visual name="rotor4_visual">
                 <geometry>
@@ -133,11 +133,11 @@
         <link name="rod_1">
             <pose>0.25 0.25 0.15 -0.5 1 0</pose>
             <inertial>
-    	        <mass>0.1</mass>
-    	        <inertia>
+             <mass>0.1</mass>
+             <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
                     <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
-    	        </inertia>
+             </inertia>
             </inertial>
             <visual name="rod1_visual">
                 <geometry>
@@ -155,11 +155,11 @@
         <link name="rod_2">
             <pose>-0.25 0.25 0.15 -0.5 -1 0</pose>
             <inertial>
-    	        <mass>0.1</mass>
-    	        <inertia>
+             <mass>0.1</mass>
+             <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
                     <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
-    	        </inertia>
+             </inertia>
             </inertial>
             <visual name="rod2_visual">
                 <geometry>
@@ -177,11 +177,11 @@
         <link name="rod_3">
             <pose>-0.25 -0.25 0.15 0.5 -1 0</pose>
             <inertial>
-    	        <mass>0.1</mass>
-    	        <inertia>
+             <mass>0.1</mass>
+             <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
                     <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
-    	        </inertia>
+             </inertia>
             </inertial>
             <visual name="rod3_visual">
                 <geometry>
@@ -199,11 +199,11 @@
         <link name="rod_4">
             <pose>0.25 -0.25 0.15 0.5 1 0</pose>
             <inertial>
-    	        <mass>0.1</mass>
-    	        <inertia>
+             <mass>0.1</mass>
+             <inertia>
                     <ixx>0.001</ixx> <iyy>0.001</iyy> <izz>0.001</izz>
                     <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
-    	        </inertia>
+             </inertia>
             </inertial>
             <visual name="rod4_visual">
                 <geometry>
@@ -267,9 +267,7 @@
             <parent>base_link</parent>
             <child>rod_4</child>
             <pose>0 0 0 0 0 0</pose>
-        </joint>   	
-        
+        </joint>
 
     </model>
 </sdf>
-
