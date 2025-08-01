@@ -37,7 +37,7 @@ Welcome to a beginner-friendly walkthrough for setting up a basic **ROS2 Package
 ## 🚀 Installing ROS2 Humble
 
 Refer to the official guide here:  
-📖 [ROS2 Humble Installation](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+📖 [ROS2 Humble Installation](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 
 Or run:
 
@@ -62,22 +62,20 @@ source ~/.bashrc
 ## Installing Ignition Gazebo 6:
 
 Official guide for the Installation can be found here:
-
+[Ignition Gazebo 6 Installation](https://gazebosim.org/docs/fortress/install_ubuntu/)
 
 Or run:
 
 ```bash
-sudo apt update
-sudo apt install lsb-release wget gnupg
+sudo apt-get update
+sudo apt-get install lsb-release gnupg
 
 # Add the Ignition repository
-sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable \
-$(lsb_release -cs) main" > /etc/apt/sources.list.d/gazebo-stable.list'
+sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 
-wget https://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-
-sudo apt update
-sudo apt install ignition-fortress
+sudo apt-get update
+sudo apt-get install ignition-fortress
 ```
 
 To test your installed Gazebo Ignition, just run:
@@ -93,20 +91,17 @@ For creating a new workspace, just run:
 ```bash
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws
-colcon build
-source install/setup.bash
 ```
 
 ## 📦 Create a Python-Based ROS2 Package
 
-Inside the '/src' folder, you can create your folder by: 
+Inside the '/src' folder, clone this repository: 
 
 ```bash
-cd ~/ros2_ws/src
-ros2 pkg create ign_pkg_v1 --build-type ament_cmake --dependencies rclpy
+git clone https://github.com/sohaib-kashif-97/ROS2-Tutorial-Medium-Part1.git
 ```
 
-If you have 'tree' install, you would be able to overlook your directory structure. IN our case, it would look like:
+If you have 'tree' install, you would be able to overlook your Package Directory Structure. In our case, it would look like:
 
 ```bash
 ign_pkg_v1/
@@ -119,5 +114,16 @@ ign_pkg_v1/
 ├── package.xml
 └── worlds
     └── world.sdf
+```
+
+Run the setup by the following commands below:
+
+```bash
+cd ~/ros2_ws
+clear
+rm -rf install log build
+colcon build
+source install/setup.bash
+ros2 launch ign_pkg_v1 ign_pkg_v1.launch.py
 ```
 
